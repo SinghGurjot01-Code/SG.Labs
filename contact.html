@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact | SG.Labs</title>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>
+    (function(){
+      emailjs.init("jfaifYBgYXrYZaDLw"); // Replace with your actual public key
+    })();
+
+    function sendEmail(e) {
+      e.preventDefault();
+
+      emailjs.sendForm('service_qj6pixl', 'template_kdpzskc', e.target)
+        .then(() => {
+          alert("Message sent successfully!");
+          e.target.reset();
+        }, (error) => {
+          console.error("Failed to send email:", error);
+          alert("There was an error. Please try again.");
+        });
+    }
+
+    window.addEventListener("DOMContentLoaded", function () {
+      document.querySelector("form").addEventListener("submit", sendEmail);
+    });
+  </script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0f1117;
+      color: #f0f0f0;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #1a1d24;
+      border-bottom: 2px solid #2a2f3a;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: bold;
+      background: linear-gradient(90deg, #ff4ecd, #5eaefd);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-decoration: none;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #d6d6d6;
+      font-weight: 500;
+    }
+
+    nav a.active {
+      color: #58d5ff;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      color: #cfcfcf;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    input, textarea {
+      padding: 0.8rem 1rem;
+      font-size: 1rem;
+      background-color: #1f222c;
+      border: 1px solid #333;
+      color: #fff;
+      border-radius: 6px;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    button {
+      background: linear-gradient(to right, #58d5ff, #a86dfd);
+      color: #fff;
+      font-size: 1rem;
+      font-weight: bold;
+      padding: 0.8rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: linear-gradient(to right, #4bb9e7, #925ef2);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #777;
+      border-top: 2px solid #2a2f3a;
+      background: #1a1d24;
+    }
+
+    @media (max-width: 600px) {
+      nav ul {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 1rem;
+      }
+
+      main {
+        padding: 0 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="Homepage.html" class="logo">SG.Labs</a>
+    <nav>
+      <ul>
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/Main/about.html">About</a></li>
+        <li><a href="/Main/contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Contact Me</h1>
+    <p>Have a cool idea, want to collaborate, or just want to say hi? Drop a message below — I’d love to hear from you!</p>
+
+    <form>
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <input type="text" name="title" placeholder="Subject" required />
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </main>
+
+  <footer>
+    &copy; 2025 SG.Labs. Built by SinghGurjot.
+  </footer>
+
+</body>
+</html>
